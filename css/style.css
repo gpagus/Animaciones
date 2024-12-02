@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+main{
+  height: 100vh;
+}
+
+#hero {
+  height: 100vh;
+  width: 100%;
+  gap: 15%;
+
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../images/acueducto.jpg");
+  background-size: cover;
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  scroll-snap-align: start;
+
+  animation: slideBackground 25s ease-in-out infinite;
+
+}
+
+#hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  letter-spacing: 1px;
+  font-size: 5vw;
+  color: #f9ca12;
+  z-index: 1;
+  animation: fadeIn 1.5s ease-out, shineText 4s infinite;
+}
+
+#bombilla {
+  width: 28%;
+  z-index: 2;
+  animation: fadeIn 1.5s ease-out, pulseGlow 2s infinite alternate;
+}
+
+
+#scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  border: 2px solid #f9ca12;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  animation: bounce 1.5s infinite;
+}
+
+#scroll-indicator::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #f9ca12;
+  border-radius: 50%;
+  margin-top: 10px;
+  animation: moveScroll 1.5s infinite;
+}
+
+@keyframes slideBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes moveScroll {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    filter: drop-shadow(0px 0px 10px gold);
+  }
+  50% {
+    filter: drop-shadow(0px 0px 20px gold);
+  }
+  100% {
+    filter: drop-shadow(0px 0px 10px gold);
+  }
+}
+
+@keyframes shineText {
+  0% {
+    background: linear-gradient(to right, #f9ca12 0%, #fff 50%, #f9ca12 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  25% {
+    background: linear-gradient(to right, #f9ca12 0%, #fff 50%, #f9ca12 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-position: 50% 0;
+  }
+  50% {
+    background: linear-gradient(to right, #f9ca12 0%, #fff 50%, #f9ca12 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-position: 100% 0;
+  }
+  75% {
+    background: linear-gradient(to right, #f9ca12 0%, #fff 50%, #f9ca12 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-position: 150% 0;
+  }
+  100% {
+    background: linear-gradient(to right, #f9ca12 0%, #fff 50%, #f9ca12 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    background-position: 200% 0;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  #hero{
+    flex-direction: column;
+    text-align: center;
+    gap: 10%;
+  }
+
+  #bombilla{
+    width: 55%;
+  }
+
+  #hero-text{
+    font-size: 9vw;
+  }
+}
+
+
+
